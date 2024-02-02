@@ -1,4 +1,3 @@
-#automation/auto.py
 import os
 import shutil
 import re
@@ -82,7 +81,11 @@ def more_info(option):
     console.print(info_table)
 
 def welcome_message():
-    console.print("[bold cyan]Hello Stephie G! Let's get busy...[/bold cyan]")
+    try:
+        name = Prompt.ask("[bold cyan]Enter your name:[/bold cyan]")
+        console.print(f"Hello {name}! Let's get busy...")
+    except Exception as e:
+        console.print(f"Error in welcome_message: {e}")
 
 def menu_driven_application():
     welcome_message()
